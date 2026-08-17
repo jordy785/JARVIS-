@@ -1,0 +1,18 @@
+# Render deployment config — auto-detects and deploys the Streamlit app
+# See: https://render.com/docs/deploy-streamlit
+services:
+  - type: web
+    name: jarvis-forex-os
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    envVars:
+      - key: TRADING_MODE
+        value: PAPER
+      - key: LIVE_TRADING_ENABLED
+        value: "false"
+      - key: LOG_FILE
+        value: ""
+    healthCheckPath: /
+    autoDeploy: true

@@ -1,5 +1,11 @@
 # JARVIS — AI Forex Trading Operating System
 
+[![Deploy on Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render)](https://render.com/deploy)
+[![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B?logo=streamlit)](https://streamlit.io)
+[![Tests](https://img.shields.io/badge/tests-84%20passing-brightgreen)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
 A multi-agent **forex trading intelligence** system that connects to
 **MetaTrader 5** for market data and order routing — with real execution
 capability that is **strictly gated by explicit user orders**.
@@ -15,6 +21,40 @@ capability that is **strictly gated by explicit user orders**.
 
 This invariant is enforced structurally (agents physically cannot submit orders)
 and verified by dedicated tests (see `tests/test_explicit_order_rule.py`).
+
+---
+
+## Déploiement en ligne (gratuit)
+
+### Option A — Render (le plus simple, comme Vercel)
+
+1. Va sur **[render.com](https://render.com)** et connecte-toi avec ton GitHub
+2. Clique **« New + »** → **« Web Service »**
+3. Connecte ton repo `jordy785/JARVIS-`
+4. Render détecte automatiquement le `render.yaml` — clique **« Apply »**
+5. En 2-3 minutes, ton app est en ligne à une URL publique du type :
+   `https://jarvis-forex-os.onrender.com`
+
+✅ L'app reste en ligne 24/7, se redéploie automatiquement à chaque push.
+
+### Option B — Streamlit Cloud
+
+1. Va sur **[share.streamlit.io](https://share.streamlit.io)**
+2. Connecte-toi avec GitHub
+3. **New app** → repo `jordy785/JARVIS-` → branch `main` → fichier `app.py`
+4. Clique **« Deploy! »**
+
+### Option C — En local (pour MetaTrader 5 réel)
+
+```bash
+pip install -e ".[dev]"
+streamlit run app.py
+```
+
+Voir `INSTALL.md` pour le guide complet Windows.
+
+> ⚠️ Sur le cloud, JARVIS tourne en mode PAPER (simulation). Pour trader en
+> réel avec MetaTrader 5, installe-le sur ton PC Windows.
 
 ---
 
